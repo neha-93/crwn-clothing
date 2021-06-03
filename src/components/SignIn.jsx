@@ -50,7 +50,7 @@ class SignIn extends Component {
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
-            label="email"
+            label="Email"
             required
           />
           <InputForm
@@ -58,7 +58,7 @@ class SignIn extends Component {
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
-            label="password"
+            label="Password"
             required
           />
 
