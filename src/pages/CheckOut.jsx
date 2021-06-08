@@ -4,6 +4,7 @@ import { selectCartItems } from "../redux/cart/cart.selectors";
 import { selectTotal } from "../redux/cart/cart.selectors";
 import CheckOutItem from "../components/CheckOutItem";
 import { connect } from "react-redux";
+import StripeCheckoutButton from "../components/StripeButton";
 
 const CheckOut = ({ cartItems, total }) => (
   <div className="checkout-page">
@@ -24,8 +25,18 @@ const CheckOut = ({ cartItems, total }) => (
         <span>Remove</span>
       </div>
     </div>
-    {cartItems.map(cartItem => <CheckOutItem key={cartItem.id} cartItem={cartItem}/>)}
+    {cartItems.map((cartItem) => (
+      <CheckOutItem key={cartItem.id} cartItem={cartItem} />
+    ))}
     <div className="total">Total: ${total}</div>
+    <div class="test-card">
+      ***Use following credit card for making test payments***
+      <br />
+      4242 4242 4242 4242 --- Exp date: 1/24 --- CVV: 123
+    </div>
+    <div className="stripe-button">
+      <StripeCheckoutButton price={total} />
+    </div>
   </div>
 );
 
